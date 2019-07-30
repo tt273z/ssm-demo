@@ -10,4 +10,11 @@ public interface UserService {
     * @return List<User>
     */
     List<User> selectAll();
+
+    /**
+     * 修改用户
+     * @param user
+     * @return Integer
+     */
+    int update(User user);
 }

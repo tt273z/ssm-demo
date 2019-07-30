@@ -6,7 +6,22 @@
         <!--<result column="username" property="username" jdbcType="VARCHAR" />-->
         <result column="password" property="password" jdbcType="VARCHAR" />
     </resultMap>
-    <select id="select" resultMap="BaseResultMap">
+    <select id="selectAll" resultMap="BaseResultMap">
         select * from suser
     </select>
+
+    <update id="update" parameterType="cc.qimz.pojo.User">
+        update suser
+        <set>
+            <if test="username!=null and username!= ''">
+                username = #{username},
+            </if>
+            <if test="password!=null and password!= ''">
+                password = #{password},
+            </if>
+        </set>
+        <where>
+            id = #{id}
+        </where>
+    </update>
 </mapper>
