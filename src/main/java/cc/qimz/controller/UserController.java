@@ -20,16 +20,12 @@ public class UserController {
 
     @RequestMapping("/selectAll")
     public Result selectAll(){
-        return ResultUtil.success(userService.selectAll());
+        return userService.selectAll();
     }
 
     @RequestMapping("/update")
     public Result update(@RequestBody User u){
-        Integer i = userService.update(u);
-        if(i==0){
-            return ResultUtil.error(ResultEnum.UPDATE_ERROR);
-        }
-        return ResultUtil.success(ResultEnum.SUCCESS);
+        return userService.update(u);
     }
 
 
