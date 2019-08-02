@@ -47,7 +47,16 @@
         <property name="Configuration">
             <bean class="org.apache.ibatis.session.Configuration">
                 <!--mybatis的配置在这里写-->
+                <property name="cacheEnabled" value="true"/>
+                <property name="lazyLoadingEnabled" value="true"/>
+                <property name="multipleResultSetsEnabled" value="true"/>
+                <property name="useColumnLabel" value="true"/>
+                <property name="useGeneratedKeys" value="false"/>
+                <property name="autoMappingBehavior" value="PARTIAL"/>
+                <property name="autoMappingUnknownColumnBehavior" value="WARNING"/>
                 <property name="mapUnderscoreToCamelCase" value="true"/>
+                <property name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+                <property name="logImpl" value="org.apache.ibatis.logging.log4j2.Log4j2Impl"/>
             </bean>
         </property>
         <!--插件配置-->
