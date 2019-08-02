@@ -15,7 +15,21 @@ public interface UserService {
     /**
      * 修改用户
      * @param user
-     * @return Integer
+     * @return Result
      */
     Result update(User user);
+
+    /**
+     * 添加用户
+     * @param user
+     * @return Result
+     */
+    Result insert(User user);
+
+    /**
+     *
+     * @param ids
+     * @return Result
+     */
+    Result deleteByIds(List<Integer> ids);
 }

@@ -1,7 +1,6 @@
 package cc.qimz.mapper;
 
 import cc.qimz.pojo.User;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -11,7 +10,7 @@ public interface UserMapper {
 
     int update(User user);
 
-    Integer insert();
+    int insert(User user);
 
-    Integer delete();
+    int deleteByIds(List<Integer> ids);
 }

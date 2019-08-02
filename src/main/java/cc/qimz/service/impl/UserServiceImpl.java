@@ -32,4 +32,22 @@ public class UserServiceImpl implements UserService {
         }
         return ResultUtil.success(ResultEnum.SUCCESS);
     }
+
+    @Override
+    public Result insert(User user) {
+        Integer i = userMapper.insert(user);
+        if(i==0){
+            return ResultUtil.error(ResultEnum.ADD_ERROR);
+        }
+        return ResultUtil.success(ResultEnum.SUCCESS);
+    }
+
+    @Override
+    public Result deleteByIds(List<Integer> ids) {
+        Integer i = userMapper.deleteByIds(ids);
+        if(i==0){
+            return ResultUtil.error(ResultEnum.DELETE_ERROR);
+        }
+        return ResultUtil.success(ResultEnum.SUCCESS);
+    }
 }
