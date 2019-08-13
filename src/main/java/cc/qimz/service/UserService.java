@@ -10,7 +10,7 @@ public interface UserService {
     * 查询全部用户
     * @return List<User>
     */
-    Result selectAll();
+    Result select(Integer id, String username);
 
     /**
      * 修改用户

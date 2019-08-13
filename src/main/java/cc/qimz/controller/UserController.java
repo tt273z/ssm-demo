@@ -17,9 +17,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/selectAll")
-    public Result selectAll(){
-        return userService.selectAll();
+    @RequestMapping("/select")
+    public Result select(Integer id, String username){
+        return userService.select(id, username);
     }
 
     @RequestMapping("/update")
@@ -33,7 +33,7 @@ public class UserController {
     }
 
     @RequestMapping("/deleteByIds")
-    public Result insert(String ids){
+    public Result delete(String ids){
         List<Integer> idList = new ArrayList<>();
         for(String id :ids.split(",")){
             idList.add(Integer.parseInt(id));

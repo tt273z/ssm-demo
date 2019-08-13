@@ -9,6 +9,7 @@ import cc.qimz.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Array;
 import java.util.List;
 
 @Service("userService")
@@ -20,8 +21,14 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public Result selectAll() {
-        return ResultUtil.success(userMapper.selectAll());
+    public Result select(Integer id, String username) {
+        Object res = new Object();
+        try {
+            res = userMapper.select(id, username);
+        } catch (Exception e) {
+            res = new Array[0];
+        }
+        return ResultUtil.success(res);
     }
 
     @Override

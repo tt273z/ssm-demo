@@ -6,8 +6,16 @@
         <result column="username" property="username" jdbcType="VARCHAR" />
         <result column="password" property="password" jdbcType="VARCHAR" />
     </resultMap>
-    <select id="selectAll" resultMap="BaseResultMap">
+    <select id="select" resultMap="BaseResultMap">
         select * from suser
+        <where>
+            <if test="id!=null and id!=''">
+                AND id = #{id}
+            </if>
+            <if test="username!=null and username!=''">
+                AND username = #{username}
+            </if>
+        </where>
     </select>
 
     <update id="update" parameterType="cc.qimz.pojo.User">
